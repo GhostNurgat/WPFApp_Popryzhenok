@@ -15,14 +15,19 @@ using System.Windows.Shapes;
 
 namespace PopryzhenokApp
 {
-    /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
-    /// </summary>
+    using View;
+
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
             InitializeComponent();
+            Connection.Popryzhenok = new Models.PopryzhenokContext();
+        }
+
+        private void GoToAgentsList(object sender, MouseButtonEventArgs e)
+        {
+            MainFrame.Navigate(new AgentsPage());
         }
     }
 }

@@ -20,6 +20,12 @@ namespace PopryzhenokApp.Models
 
         public int ProductCount { get; set; }
 
+        [NotMapped]
+        public int CountSaleYear
+        {
+            get => 365 * ProductCount;
+        }
+
         public virtual Agent Agent { get; set; }
 
         public virtual Product Product { get; set; }
