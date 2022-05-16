@@ -24,18 +24,24 @@
             <Setter Property="FontWeight" Value="Bold" />
             <Setter Property="Margin" Value="8,8" />
             <Setter Property="Cursor" Value="Hand" />
-            <Setter Property="Foreground" Value="{StaticResource AccentColor}" />
+            <Setter Property="Foreground" Value="{StaticResource AdditionalColor}" />
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Background" Value="{StaticResource AdditionalColor}" />
+                    <Setter Property="Background" Value="{StaticResource AccentColor}" />
                 </Trigger>
             </Style.Triggers>
         </Style>
 
         <Style TargetType="Label" x:Key="HeaderLabel"
                BasedOn="{StaticResource LabelStyle}">
-            <Setter Property="FontSize" Value="20" />
+            <Setter Property="FontSize" Value="32" />
             <Setter Property="FontWeight" Value="DemiBold" />
+        </Style>
+
+        <Style TargetType="Button" x:Key="MainButtonStyle">
+            <Setter Property="Background" Value="{StaticResource AccentColor}" />
+            <Setter Property="FontFamily" Value="Comic Sans MS" />
+            <Setter Property="FontSize" Value="14" />
         </Style>
 
         <converter:LogoPathConverter x:Key="PathConverter" />

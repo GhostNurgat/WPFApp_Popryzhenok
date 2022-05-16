@@ -71,8 +71,14 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Converters\LogoPathConverter.cs" />
+    <Compile Include="View\AddAgentPage.xaml.cs">
+      <DependentUpon>AddAgentPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\AgentsPage.xaml.cs">
       <DependentUpon>AgentsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NewAgentWindow.xaml.cs">
+      <DependentUpon>NewAgentWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -88,7 +94,15 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\AddAgentPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\AgentsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NewAgentWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

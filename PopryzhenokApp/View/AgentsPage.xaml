@@ -15,8 +15,8 @@
             <RowDefinition Height="50" />
         </Grid.RowDefinitions>
 
-        <ListBox Grid.Row="1" ItemsSource="{Binding Agents}"
-                 ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+        <ListBox Grid.Row="1" ItemsSource="{Binding Agents}" x:Name="listBox1"
+                 ScrollViewer.HorizontalScrollBarVisibility="Disabled" BorderThickness="0">
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel Width="780" />
@@ -51,10 +51,45 @@
                                 <Run Text="Приоритетность:" />
                                 <Run Text="{Binding Agent.Priority}" />
                             </TextBlock>
+
+                            <StackPanel Orientation="Horizontal" Margin="0,8,0,0"
+                                        HorizontalAlignment="Left" VerticalAlignment="Center">
+                                <Button Content="Редактировать" Style="{StaticResource MainButtonStyle}" Margin="8,0,0,0" />
+                                <Button Content="Удалить" Style="{StaticResource MainButtonStyle}" Margin="8,0,0,0" />
+                            </StackPanel>
                         </StackPanel>
                     </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
+
+        <Grid Grid.Row="2" Background="White">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Left" VerticalAlignment="Center">
+                <Button Content="Добавить" Style="{StaticResource MainButtonStyle}" Width="120" Margin="8,0,0,0"
+                        Click="GoToAddAgentPage" />
+            </StackPanel>
+
+            <StackPanel Grid.Column="1"
+                        Orientation="Horizontal"
+                        HorizontalAlignment="Right" VerticalAlignment="Center">
+                <Label Content="&lt;&lt;" Style="{StaticResource NavigationLabel}" />
+                <Label Content="&lt;" Style="{StaticResource NavigationLabel}" />
+                
+                <TextBlock Style="{StaticResource TextStyle}" FontSize="16" VerticalAlignment="Center">
+                    <Run Name="CurrentPage" Text="1" />
+                    <Run Text="из" />
+                    <Run Name="TotalPage" Text="5" />
+                </TextBlock>
+
+                <Label Content="&gt;" Style="{StaticResource NavigationLabel}" />
+                <Label Content="&gt;&gt;" Style="{StaticResource NavigationLabel}" />
+            </StackPanel>
+        </Grid>
     </Grid>
 </Page>

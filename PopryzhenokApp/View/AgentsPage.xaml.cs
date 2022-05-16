@@ -30,6 +30,10 @@ namespace PopryzhenokApp.View
             set { agents = value; if (PropertyChanged != null) PropertyChanged.Invoke(this, new PropertyChangedEventArgs("Agents")); }
         }
 
+        int CurrentPageIndex = 1;
+        int ItemPerPage = 10;
+        int totalPage = 0;
+
         public AgentsPage()
         {
             InitializeComponent();
@@ -38,5 +42,10 @@ namespace PopryzhenokApp.View
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
+
+        private void GoToAddAgentPage(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AddAgentPage());
+        }
     }
 }
