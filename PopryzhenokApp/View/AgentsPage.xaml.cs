@@ -117,5 +117,49 @@ namespace PopryzhenokApp.View
                 }
             }
         }
+
+        private void SortByTitle(object sender, SelectionChangedEventArgs e)
+        {
+            switch (SortByTitleCb.SelectedIndex)
+            {
+                case 0:
+                    Agents = Connection.Popryzhenok.ProductSale
+                        .ToObservableCollection();
+                    break;
+                case 1:
+                    Agents = Connection.Popryzhenok.ProductSale
+                        .OrderBy(p => p.Agent.Title).ToObservableCollection();
+                    break;
+                case 2:
+                    Agents = Connection.Popryzhenok.ProductSale
+                        .OrderByDescending(p => p.Agent.Title).ToObservableCollection();
+                    break;
+            }
+        }
+
+        private void SortByPriority(object sender, SelectionChangedEventArgs e)
+        {
+            switch (SortByPriorityCb.SelectedIndex)
+            {
+                case 0:
+                    Agents = Connection.Popryzhenok.ProductSale.ToObservableCollection();
+                    break;
+                case 1:
+                    Agents = Connection.Popryzhenok.ProductSale
+                        .OrderBy(p => p.Agent.Priority).ToObservableCollection();
+                    break;
+                case 2:
+                    Agents = Connection.Popryzhenok.ProductSale
+                        .OrderByDescending(p => p.Agent.Priority).ToObservableCollection();
+                    break;
+            }
+        }
+
+        private void FilterType(object sender, SelectionChangedEventArgs e)
+        {
+            Agents = Connection.Popryzhenok.ProductSale
+                .Where(s => s.Agent.AgentTypeID == (int)AgentTypeCb.SelectedValue)
+                .ToObservableCollection();
+        }
     }
 }

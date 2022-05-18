@@ -24,19 +24,24 @@
                 <TextBox Width="180" FontFamily="Comic Sans MS" Name="PhoneTb" TextChanged="SearchByPhone" />
 
                 <Label Content="Фильтрация по типу:" Style="{StaticResource LabelStyle}" />
-                <ComboBox x:Name="AgentTypeCb" Width="85" FontFamily="Comic Sans MS" />
+                <ComboBox x:Name="AgentTypeCb" Width="85" FontFamily="Comic Sans MS"
+                          SelectionChanged="FilterType" />
             </StackPanel>
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="5,10,5,0">
                 <Label Content="Сортировка:" Style="{StaticResource LabelStyle}" Margin="0,0,10,0" />
 
                 <Label Content="Наименование" Style="{StaticResource LabelStyle}" />
-                <ComboBox x:Name="SortByTitleCb" Width="190" FontFamily="Comic Sans MS">
+                <ComboBox x:Name="SortByTitleCb" Width="190" FontFamily="Comic Sans MS"
+                          SelectionChanged="SortByTitle">
+                    <ComboBoxItem Content="(нет)" />
                     <ComboBoxItem Content="По возрастанию" />
                     <ComboBoxItem Content="По убыванию" />
                 </ComboBox>
 
                 <Label Content="Приоритетность" Style="{StaticResource LabelStyle}" />
-                <ComboBox x:Name="SortByPriorityCb" Width="190" FontFamily="Comic Sans MS">
+                <ComboBox x:Name="SortByPriorityCb" Width="190" FontFamily="Comic Sans MS"
+                          SelectionChanged="SortByPriority">
+                    <ComboBoxItem Content="(нет)" />
                     <ComboBoxItem Content="По возрастанию" />
                     <ComboBoxItem Content="По убыванию" />
                 </ComboBox>
