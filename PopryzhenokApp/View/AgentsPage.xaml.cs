@@ -161,5 +161,14 @@ namespace PopryzhenokApp.View
                 .Where(s => s.Agent.AgentTypeID == (int)AgentTypeCb.SelectedValue)
                 .ToObservableCollection();
         }
+
+        private void GoToUpdateAgent(object sender, RoutedEventArgs e)
+        {
+            Button button = sender as Button;
+            int id = (int)button.Tag;
+
+            ProductSale productSale = Connection.Popryzhenok.ProductSale.Find(id);
+            NavigationService.Navigate(new UpdateAgentPage(productSale));
+        }
     }
 }

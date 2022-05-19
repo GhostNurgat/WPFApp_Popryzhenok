@@ -1,0 +1,113 @@
+﻿<Page x:Class="PopryzhenokApp.View.UpdateAgentPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PopryzhenokApp.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="950"
+      Title="UpdateAgentPage">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="85" />
+            <RowDefinition />
+            <RowDefinition Height="50" />
+        </Grid.RowDefinitions>
+
+        <Label Content="Редактирования агента" Style="{StaticResource HeaderLabel}"
+               HorizontalAlignment="Stretch" VerticalAlignment="Center" />
+
+        <StackPanel Grid.Row="1" VerticalAlignment="Top"
+                    DataContext="{Binding Agent}">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Label Content="Тип агента" Style="{StaticResource LabelStyle}" />
+                <ComboBox x:Name="TypeCb" Width="80" FontFamily="Comic Sans MS"
+                          SelectedValue="{Binding AgentTypeID}" />
+
+                <Label Content="Название" Style="{StaticResource LabelStyle}" />
+                <TextBox Text="{Binding Title}" Width="220" FontFamily="Comic Sans MS" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,15,0,0">
+                <Label Content="ИНН" Style="{StaticResource LabelStyle}" />
+                <TextBox Text="{Binding INN}" Width="150" FontFamily="Comic Sans MS" />
+
+                <Label Content="КПП" Style="{StaticResource LabelStyle}" Margin="8,0,0,0" />
+                <TextBox Text="{Binding KPP}" Width="150" FontFamily="Comic Sans MS" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,15,0,0">
+                <Label Content="Директор" Style="{StaticResource LabelStyle}" />
+                <TextBox Text="{Binding DirectorName}" Width="280" FontFamily="Comic Sans MS" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,5,0,0">
+                <Label Content="Email" Style="{StaticResource LabelStyle}" />
+                <TextBox Text="{Binding Email}" Width="180" FontFamily="Comic Sans MS" />
+
+                <Label Content="Телефон" Style="{StaticResource LabelStyle}" Margin="8,0,0,0" />
+                <TextBox Text="{Binding Phone}" Width="155" FontFamily="Comic Sans MS" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,8,0,0">
+                <Label Content="Адрес" Style="{StaticResource LabelStyle}" />
+                <TextBox Text="{Binding Address}" Width="400" FontFamily="Comic Sans MS"
+                         ScrollViewer.HorizontalScrollBarVisibility="Auto" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,18,0,0">
+                <Label Content="Приоритет" Style="{StaticResource LabelStyle}" />
+                <TextBox Text="{Binding Priority}" Width="150" FontFamily="Comic Sans MS" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,30,0,0">
+                <TextBox x:Name="TbErrors" Width="458" Height="45" FontFamily="Comic Sans MS" Foreground="Red"
+                         ScrollViewer.VerticalScrollBarVisibility="Auto" IsReadOnly="True" />
+            </StackPanel>
+        </StackPanel>
+
+        <Button Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center"
+                Width="150" Height="30" Style="{StaticResource MainButtonStyle}"
+                Content="Сохранить" Click="SaveAgent" DataContext="{Binding Agent}" />
+
+        <StackPanel Orientation="Horizontal" Grid.Column="1" HorizontalAlignment="Center"
+                    DataContext="{Binding Agent}">
+            <Image Width="80" Height="80" x:Name="MainImage"
+                   Source="{Binding Logo, Converter={StaticResource PathConverter}}" />
+            <Button Content="Загрузить" Style="{StaticResource MainButtonStyle}"
+                    Height="30" Width="150" Margin="8,0" Click="LoadLogo" />
+        </StackPanel>
+
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center"
+                    Grid.Column="1" Grid.Row="1">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Label Content="Продукты" Style="{StaticResource LabelStyle}" />
+                <ComboBox x:Name="ProductCb" Width="300" FontFamily="Comic Sans MS"
+                          SelectedValue="{Binding ProductID}" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,18,0,0">
+                <Label Content="Дата продажи" Style="{StaticResource LabelStyle}" />
+                <DatePicker Width="200" SelectedDate="{Binding SaleDate}" FontFamily="Comic Sans MS" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,18,0,0">
+                <Label Content="Кол-во продуктов" Style="{StaticResource LabelStyle}" />
+                <TextBox Text="{Binding ProductCount}" Width="150" FontFamily="Comic Sans MS" />
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center"
+                    Grid.Column="1" Grid.Row="2">
+            <Button Content="Подтвердить" Style="{StaticResource MainButtonStyle}"
+                    Click="SaveChanges" />
+            <Button Content="Отмена" Style="{StaticResource MainButtonStyle}" Margin="8,0"
+                    Click="GoBackAgents" />
+        </StackPanel>
+    </Grid>
+</Page>

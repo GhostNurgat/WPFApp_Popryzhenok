@@ -80,6 +80,9 @@
     <Compile Include="View\NewAgentWindow.xaml.cs">
       <DependentUpon>NewAgentWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\UpdateAgentPage.xaml.cs">
+      <DependentUpon>UpdateAgentPage.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -103,6 +106,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\NewAgentWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UpdateAgentPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
